@@ -875,6 +875,21 @@ section {
   color: var(--ink-soft);
 }
 
+.contact-card--qr .qr-figure {
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.contact-card--qr .qr-code {
+  display: block;
+  width: 196px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: #fff;
+  image-rendering: pixelated;
+}
+
 .map-wrap {
   border-radius: var(--radius);
   overflow: hidden;
