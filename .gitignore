@@ -1,7 +1,9 @@
-node_modules/
-dist/
-.tmp/
-.DS_Store
-.verify/
 *.log
+.DS_Store
+.tmp/
 .vercel/
+.verify/
+dist/
+node_modules/
+public/fonts/Infamous-Regular.otf
+source-assets/
