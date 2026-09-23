@@ -1,0 +1,232 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=()"
+        }
+      ]
+    },
+    {
+      "source": "/404",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/esempio-report-atleta",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/esempio-report-generale",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/traumi-sportivi-milano",
+      "destination": "/recupero-infortunio-sportivo/",
+      "permanent": true
+    },
+    {
+      "source": "/traumi-sportivi-milano/",
+      "destination": "/recupero-infortunio-sportivo/",
+      "permanent": true
+    },
+    {
+      "source": "/ginnastica-posturale-e-riatletizzazione/",
+      "destination": "/preparazione-atletica/",
+      "permanent": true
+    },
+    {
+      "source": "/ginnastica-posturale-e-riatletizzazione",
+      "destination": "/preparazione-atletica/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/11/28/lombalgia/",
+      "destination": "/mal-di-schiena-milano/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/11/28/lombalgia",
+      "destination": "/mal-di-schiena-milano/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/17/mal-di-testa/",
+      "destination": "/cervicalgia-milano/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/17/mal-di-testa",
+      "destination": "/cervicalgia-milano/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/dolore-alla-caviglia/",
+      "destination": "/distorsione-caviglia/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/dolore-alla-caviglia",
+      "destination": "/distorsione-caviglia/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/dolore-alla-spalla/",
+      "destination": "/dolore-spalla/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/dolore-alla-spalla",
+      "destination": "/dolore-spalla/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/prevenzione-sportiva/",
+      "destination": "/recupero-infortunio-sportivo/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/prevenzione-sportiva",
+      "destination": "/recupero-infortunio-sportivo/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/acufene/",
+      "destination": "/osteopatia/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/acufene",
+      "destination": "/osteopatia/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/coccigodinia/",
+      "destination": "/mal-di-schiena-milano/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/coccigodinia",
+      "destination": "/mal-di-schiena-milano/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/colpo-di-frusta/",
+      "destination": "/cervicalgia-milano/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/colpo-di-frusta",
+      "destination": "/cervicalgia-milano/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/dismenorrea/",
+      "destination": "/osteopatia/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/dismenorrea",
+      "destination": "/osteopatia/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/fibromialgia/",
+      "destination": "/osteopatia/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/fibromialgia",
+      "destination": "/osteopatia/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/reflusso-gastroesofageo/",
+      "destination": "/osteopatia/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/reflusso-gastroesofageo",
+      "destination": "/osteopatia/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/scoliosi/",
+      "destination": "/osteopatia/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/scoliosi",
+      "destination": "/osteopatia/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/stipsi/",
+      "destination": "/osteopatia/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/stipsi",
+      "destination": "/osteopatia/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/vertigini/",
+      "destination": "/cervicalgia-milano/",
+      "permanent": true
+    },
+    {
+      "source": "/2022/12/19/vertigini",
+      "destination": "/cervicalgia-milano/",
+      "permanent": true
+    }
+  ]
+}

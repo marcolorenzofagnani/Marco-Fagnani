@@ -1,0 +1,21 @@
+{
+  "name": "marco-fagnani-osteopata",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5177",
+    "seo": "node scripts/generate-seo-files.mjs",
+    "zones": "node scripts/generate-zone-landings.mjs",
+    "vercel:config": "node scripts/generate-vercel-config.mjs",
+    "prebuild": "node scripts/generate-zone-landings.mjs && node scripts/generate-seo-files.mjs && node scripts/generate-vercel-config.mjs",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 5177"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@fontsource/outfit": "^5.3.0"
+  }
+}

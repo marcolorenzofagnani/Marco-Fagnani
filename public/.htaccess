@@ -1,0 +1,121 @@
+# Apache / Aruba — SEO + cache + security headers for static Vite build
+# Canonical host: https://www.marcofagnaniosteopata.it
+# Canonical paths: trailing slash (home = /)
+# IMPORTANT: do NOT set X-Robots-Tag: none on public HTML (that blocks indexing).
+
+Options -Indexes
+DirectoryIndex index.html
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  # Security — all responses
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(woff2|webp|avif|png|jpe?g|gif|svg|ico|xml|txt)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # 404 should not be cached as success by intermediaries
+  <Files "404.html">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set X-Robots-Tag "noindex, nofollow"
+  </Files>
+  # Facsimile reports — keep out of index even if linked
+  <FilesMatch "^(esempio-report-.*)\.html$">
+    Header set X-Robots-Tag "noindex, follow"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 5 minutes"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType application/xml "access plus 1 day"
+  ExpiresByType text/plain "access plus 1 day"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json application/xml text/plain image/svg+xml
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # --- 1) Canonical host + HTTPS ---
+  # Host non-www → www (sempre HTTPS)
+  RewriteCond %{HTTP_HOST} !^www\.marcofagnaniosteopata\.it$ [NC]
+  RewriteRule ^ https://www.marcofagnaniosteopata.it%{REQUEST_URI} [R=301,L]
+
+  # HTTP → HTTPS (compatibile con aruba-proxy / X-Forwarded-Proto)
+  RewriteCond %{HTTP:X-Forwarded-Proto} =http [OR]
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https [NC]
+  RewriteRule ^ https://www.marcofagnaniosteopata.it%{REQUEST_URI} [R=301,L]
+
+  # --- 2) Legacy WordPress / alias → new canonicals ---
+  RewriteRule ^ginnastica-posturale-e-riatletizzazione/?$ /preparazione-atletica/ [R=301,L]
+  RewriteRule ^privacy-policy/?$ /privacy/ [R=301,L]
+  RewriteRule ^2022/11/28/lombalgia/?$ /mal-di-schiena-milano/ [R=301,L]
+  RewriteRule ^2022/12/17/mal-di-testa/?$ /cervicalgia-milano/ [R=301,L]
+  RewriteRule ^2022/12/19/dolore-alla-caviglia/?$ /distorsione-caviglia/ [R=301,L]
+  RewriteRule ^2022/12/19/dolore-alla-spalla/?$ /dolore-spalla/ [R=301,L]
+  RewriteRule ^2022/12/19/prevenzione-sportiva/?$ /recupero-infortunio-sportivo/ [R=301,L]
+  RewriteRule ^2022/12/19/acufene/?$ /osteopatia/ [R=301,L]
+  RewriteRule ^2022/12/19/coccigodinia/?$ /mal-di-schiena-milano/ [R=301,L]
+  RewriteRule ^2022/12/19/colpo-di-frusta/?$ /cervicalgia-milano/ [R=301,L]
+  RewriteRule ^2022/12/19/dismenorrea/?$ /osteopatia/ [R=301,L]
+  RewriteRule ^2022/12/19/fibromialgia/?$ /osteopatia/ [R=301,L]
+  RewriteRule ^2022/12/19/reflusso-gastroesofageo/?$ /osteopatia/ [R=301,L]
+  RewriteRule ^2022/12/19/scoliosi/?$ /osteopatia/ [R=301,L]
+  RewriteRule ^2022/12/19/stipsi/?$ /osteopatia/ [R=301,L]
+  RewriteRule ^2022/12/19/vertigini/?$ /cervicalgia-milano/ [R=301,L]
+
+  # Thin bridge kept as file but preferred URL is the full guide
+  RewriteRule ^traumi-sportivi-milano/?$ /recupero-infortunio-sportivo/ [R=301,L]
+
+  # WP leftovers after static cutover
+  RewriteRule ^(wp-admin|wp-login\.php|wp-json|xmlrpc\.php|feed|comments/feed)(/|$) - [R=410,L]
+
+  # --- 3) Trailing-slash consistency + drop .html ---
+  # /index.html → /
+  RewriteRule ^index\.html$ / [R=301,L]
+
+  # /page.html → /page/
+  RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+  RewriteRule ^ /%1/ [R=301,L]
+
+  # /page → /page/  (skip real files and directories)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteCond %{REQUEST_URI} !\.[a-z0-9]{1,8}$ [NC]
+  RewriteRule ^(.+)$ /$1/ [R=301,L]
+
+  # --- 4) Serve clean URLs from *.html files ---
+  # /page/ → page.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+)/$ $1.html [L]
+
+  # /page (after internal rewrite edge cases)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+</IfModule>

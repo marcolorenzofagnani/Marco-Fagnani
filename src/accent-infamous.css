@@ -1,0 +1,167 @@
+/**
+ * ACCENT TIPOGRAFICO — Infamous (solo homepage, uso limitato)
+ * ============================================================
+ * COME RIMUOVERE:
+ * 1. Elimina questo file
+ * 2. Rimuovi `import "./accent-infamous.css"` da src/main.js
+ * 3. Rimuovi da index.html i nodi con class che inizia per `acc-`
+ *
+ * FONT: copia i file con licenza web in:
+ *   public/fonts/Infamous-Regular.woff2
+ *   public/fonts/Infamous-Regular.woff   (opzionale)
+ * Fonte tipica: TYPEHEIST — Infamous.
+ */
+
+@font-face {
+  font-family: "Infamous";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url("/fonts/Infamous-Regular.woff2") format("woff2"),
+    url("/fonts/Infamous-Regular.woff") format("woff");
+}
+
+:root {
+  --font-accent: "Infamous", "Segoe Print", "Bradley Hand", "Apple Chancery",
+    cursive;
+  --acc-teal: #2a8a92;
+  --acc-teal-soft: rgba(42, 138, 146, 0.22);
+  --acc-on-dark: #d4f0f2;
+  --acc-on-dark-soft: rgba(212, 240, 242, 0.35);
+}
+
+/* --- tipografia accent (mai body/FAQ/nav/bottoni) --- */
+.acc-word,
+.acc-note,
+.acc-step__word,
+.acc-title {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+.acc-word {
+  font-size: 1.05em;
+  position: relative;
+  display: inline;
+  white-space: nowrap;
+  /* underline drawn behind glyphs, not under stacking context of hero */
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' fill='none'%3E%3Cpath d='M2 8c18-4 28 2 42-1s26-3 40 1 22-2 32-2' stroke='%23d4f0f2' stroke-width='2.2' stroke-linecap='round' opacity='0.75'/%3E%3C/svg%3E")
+    0 100% / 100% 0.32em no-repeat;
+  padding-bottom: 0.08em;
+}
+
+.acc-word::after {
+  display: none;
+}
+
+.acc-note {
+  margin: 0.55rem 0 0;
+  font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+  color: var(--acc-on-dark);
+  opacity: 0.92;
+  max-width: 22rem;
+}
+
+.acc-note--on-band {
+  color: #e8f7f8;
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+}
+
+.acc-step {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 0.45rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--acc-teal);
+}
+
+.acc-step__num {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+
+.acc-step__word {
+  font-size: 1.08em;
+  letter-spacing: 0.02em;
+}
+
+/* titoli area servizi (card homepage) */
+.card-body h3.acc-title {
+  font-family: var(--font-accent);
+  font-weight: 400;
+  font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--acc-teal);
+  margin: 0 0 0.55rem;
+}
+
+/* marks decorativi (SVG inline via background) */
+.acc-mark {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  color: var(--acc-teal);
+}
+
+.acc-mark--circle {
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-right: 0.35rem;
+  border: 1.6px solid currentColor;
+  border-radius: 50%;
+  opacity: 0.7;
+  transform: rotate(-8deg);
+}
+
+.acc-mark--x {
+  width: 0.65rem;
+  height: 0.65rem;
+  margin-left: 0.25rem;
+  opacity: 0.55;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2 2.5l8 7M10 2.5l-8 7' stroke='%232a8a92' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+
+.acc-mark--plus {
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-left: 0.3rem;
+  opacity: 0.55;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M6 2v8M2 6h8' stroke='%232a8a92' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+
+.acc-arrow {
+  display: block;
+  width: min(4.5rem, 18vw);
+  height: 1.1rem;
+  margin: 0.35rem 0 0.15rem;
+  opacity: 0.75;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 18' fill='none'%3E%3Cpath d='M2 10c22-6 40 4 58-2 8-2 14-1 20 1' stroke='%23e8f7f8' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M72 5l12 5-10 5' stroke='%23e8f7f8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    left center / contain no-repeat;
+}
+
+/* card accent: non altera layout griglia */
+.card--accent .card-body {
+  position: relative;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acc-word::after,
+  .acc-arrow,
+  .acc-mark {
+    transition: none;
+  }
+}

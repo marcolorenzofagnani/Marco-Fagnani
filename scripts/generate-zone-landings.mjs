@@ -1,0 +1,127 @@
+#!/usr/bin/env node
+/**
+ * Generates osteopata-[zona]-milano.html from src/zone-landings.js
+ */
+import { writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+import { ZONE_LANDINGS } from "../src/zone-landings.js";
+
+const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const WA =
+  "https://wa.me/393451568849?text=" +
+  encodeURIComponent("Ciao Marco, vorrei prenotare una seduta.");
+
+function page(z) {
+  const canonical = `https://www.marcofagnaniosteopata.it/${z.slug}/`;
+  return `<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style id="critical-skip">
+      .skip-link{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;margin:0!important;padding:0!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+      .skip-link:focus,.skip-link:focus-visible{left:.75rem!important;top:.75rem!important;width:auto!important;height:auto!important;padding:.65rem 1rem!important;overflow:visible!important;clip:auto!important;z-index:100;border-radius:999px;background:#1e4a55;color:#fff;font-weight:600;font-size:.92rem;text-decoration:none;box-shadow:0 0 0 3px #2a8a92}
+    </style>
+    <title>${z.title}</title>
+    <meta name="description" content="${z.description}" />
+    <link rel="canonical" href="${canonical}" />
+    <link rel="icon" href="/images/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/images/favicon.png?v=2" />
+    <meta property="og:title" content="${z.title}" />
+    <meta property="og:description" content="${z.description}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="${canonical}" />
+    <meta property="og:image" content="https://www.marcofagnaniosteopata.it/images/osteo-schiena.jpg" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:site_name" content="Marco Fagnani Osteopata" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${z.title}" />
+    <meta name="twitter:description" content="${z.description}" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="/src/accent-infamous.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenuto" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Vai al contenuto</a>
+    <header class="site-header" data-header></header>
+    <main id="contenuto">
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Percorso">
+            <a href="index.html">Home</a>
+            <span aria-hidden="true">/</span>
+            <a href="blog.html">Blog</a>
+            <span aria-hidden="true">/</span>
+            <span>${z.zone}</span>
+          </nav>
+          <p class="eyebrow" style="color: var(--teal-deep)">Zona · Milano est</p>
+          <h1>${z.h1}</h1>
+          <p>
+            Sono <strong>Marco Fagnani</strong>, osteopata e chinesiologo.
+            Lo studio è in <strong>Viale Enrico Forlanini 23</strong> (zona
+            Forlanini, metro Repetti M4). Questa pagina è per chi cerca un
+            osteopata partendo da <strong>${z.zone}</strong> — non è uno
+            studio separato nel quartiere.
+          </p>
+          <p><strong style="color: var(--teal-deep)">70 € osteopatia · 70 € valutazione · 60 € RTP / preparazione · 1 ora</strong></p>
+          <p style="margin-top: 1rem">
+            <a class="btn btn-wa" href="${WA}" target="_blank" rel="noopener noreferrer">Prenota su WhatsApp</a>
+            <a class="btn btn-outline" href="milano-forlanini.html" style="margin-left: 0.5rem">Come arrivare in sede</a>
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="container prose">
+          <h2>Perché una pagina per ${z.zone}</h2>
+          <p>${z.angle}</p>
+          <h2>Come arrivare dallo studio</h2>
+          <p>${z.transit}</p>
+          <p>
+            Dettagli indirizzo, mappa e metro:
+            <a href="milano-forlanini.html">Osteopata a Milano Forlanini, vicino a Repetti</a>.
+          </p>
+          <h2>Cosa puoi fare in seduta</h2>
+          <ul>
+            <li><a href="osteopatia.html">Visita osteopatica</a> — trattamento manuale, 70 €</li>
+            <li><a href="valutazione-funzionale.html">Valutazione funzionale</a> — forza, mobilità, controllo, 70 €</li>
+            <li><a href="return-to-play.html">Return to play</a> — ritorno allo sport, 60 €</li>
+            <li><a href="preparazione-atletica.html">Preparazione atletica</a> — forza e condizionamento, 60 €</li>
+          </ul>
+          <p>
+            Non offro prestazioni di fisioterapia: se serve un fisioterapista
+            abilitato, lo indico. Qui il lavoro è osteopatia, movimento e
+            performance.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="band">
+            <div>
+              <h2>Prenota da ${z.zone}</h2>
+              <p>
+                WhatsApp 345 156 8849 · Viale Enrico Forlanini 23, Milano.
+                Scrivi da dove parti (${z.zone}): ti indico il percorso più
+                semplice.
+              </p>
+            </div>
+            <a class="btn btn-wa" href="${WA}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer" data-footer></footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
+`;
+}
+
+for (const z of ZONE_LANDINGS) {
+  const file = join(root, `${z.slug}.html`);
+  writeFileSync(file, page(z));
+  console.log("wrote", z.slug + ".html");
+}
+console.log(`Zone landings: ${ZONE_LANDINGS.length}`);
