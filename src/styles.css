@@ -472,6 +472,37 @@ a {
   font-variant-numeric: tabular-nums;
 }
 
+.tariff-note {
+  margin: -0.75rem 0 1.25rem;
+  max-width: 420px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.tariffario--compact {
+  margin: 0;
+  max-width: none;
+  background: #f4f7f8;
+  border: 1px solid var(--line);
+  backdrop-filter: none;
+}
+
+.tariffario--compact .tariff-row {
+  border-bottom-color: var(--line);
+}
+
+.tariffario--compact .tariff-name {
+  color: var(--ink);
+}
+
+.tariffario--compact .tariff-meta {
+  color: var(--muted);
+}
+
+.tariffario--compact .tariff-price {
+  color: var(--teal-deep);
+}
+
 .pill {
   display: inline-flex;
   align-items: center;
