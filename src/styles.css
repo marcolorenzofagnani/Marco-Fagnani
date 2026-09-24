@@ -709,6 +709,32 @@ section {
   font-weight: 400;
 }
 
+/* Home servizi: titoli / testi / prezzi allineati sulla riga */
+#servizi .grid-4 {
+  align-items: stretch;
+}
+
+#servizi .card-body h3.acc-title {
+  min-height: 2.55em; /* 2 righe titolo accent */
+  display: flex;
+  align-items: flex-end;
+}
+
+#servizi .card-body > p {
+  flex: 1 1 auto;
+  min-height: 6.2em; /* ~4 righe descrizione */
+  line-height: 1.55;
+}
+
+#servizi .card-actions {
+  margin-top: auto;
+}
+
+#servizi .card-link {
+  min-height: 2.7em;
+  align-items: flex-start;
+}
+
 .card-actions {
   margin-top: auto;
   padding-top: 1.1rem;
