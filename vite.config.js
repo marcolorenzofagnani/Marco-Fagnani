@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import { resolve } from "node:path";
-import { ZONE_LANDINGS } from "./src/zone-landings.js";
 
 const FONT_PRELOAD = `
     <link rel="preload" href="/fonts/outfit-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -17,10 +16,6 @@ const HERO_PRELOAD = `
       imagesizes="100vw"
       fetchpriority="high"
     />`;
-
-const zoneInputs = Object.fromEntries(
-  ZONE_LANDINGS.map((z) => [z.slug.replace(/-/g, "_"), resolve(__dirname, `${z.slug}.html`)]),
-);
 
 export default defineConfig({
   root: ".",
@@ -53,10 +48,8 @@ export default defineConfig({
         recupero: resolve(__dirname, "recupero-infortunio-sportivo.html"),
         privacy: resolve(__dirname, "privacy.html"),
         notFound: resolve(__dirname, "404.html"),
-        traumi: resolve(__dirname, "traumi-sportivi-milano.html"),
         reportGp: resolve(__dirname, "esempio-report-generale.html"),
         reportAthlete: resolve(__dirname, "esempio-report-atleta.html"),
-        ...zoneInputs,
       },
     },
   },

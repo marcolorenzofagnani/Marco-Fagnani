@@ -59,16 +59,6 @@
       "permanent": true
     },
     {
-      "source": "/traumi-sportivi-milano",
-      "destination": "/recupero-infortunio-sportivo/",
-      "permanent": true
-    },
-    {
-      "source": "/traumi-sportivi-milano/",
-      "destination": "/recupero-infortunio-sportivo/",
-      "permanent": true
-    },
-    {
       "source": "/ginnastica-posturale-e-riatletizzazione/",
       "destination": "/preparazione-atletica/",
       "permanent": true
@@ -226,6 +216,96 @@
     {
       "source": "/2022/12/19/vertigini",
       "destination": "/cervicalgia-milano/",
+      "permanent": true
+    },
+    {
+      "source": "/traumi-sportivi-milano/",
+      "destination": "/recupero-infortunio-sportivo/",
+      "permanent": true
+    },
+    {
+      "source": "/traumi-sportivi-milano",
+      "destination": "/recupero-infortunio-sportivo/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-mecenate-milano/",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-mecenate-milano",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-ortica-milano/",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-ortica-milano",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-lambrate-milano/",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-lambrate-milano",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-citta-studi-milano/",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-citta-studi-milano",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-taliedo-linate-milano/",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-taliedo-linate-milano",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-porta-vittoria-milano/",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-porta-vittoria-milano",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-santa-giulia-milano/",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-santa-giulia-milano",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-rogoredo-milano/",
+      "destination": "/milano-forlanini/",
+      "permanent": true
+    },
+    {
+      "source": "/osteopata-rogoredo-milano",
+      "destination": "/milano-forlanini/",
       "permanent": true
     }
   ]

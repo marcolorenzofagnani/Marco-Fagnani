@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
  * Writes vercel.json for production on Vercel.
+ * Emits both /path and /path/ sources → destination with trailing slash
+ * so trailingSlash:true does not create an extra hop before our 301.
  */
 import { writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -11,24 +13,15 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 const redirects = [
   { source: "/index.html", destination: "/", permanent: true },
-  {
-    source: "/traumi-sportivi-milano",
-    destination: "/recupero-infortunio-sportivo/",
-    permanent: true,
-  },
-  {
-    source: "/traumi-sportivi-milano/",
-    destination: "/recupero-infortunio-sportivo/",
-    permanent: true,
-  },
 ];
 
 for (const [from, to] of LEGACY_REDIRECTS) {
   const withSlash = from.endsWith("/") ? from : `${from}/`;
   const noSlash = withSlash.slice(0, -1);
+  const dest = to.endsWith("/") || to === "/" ? to : `${to}/`;
   redirects.push(
-    { source: withSlash, destination: to, permanent: true },
-    { source: noSlash, destination: to, permanent: true },
+    { source: withSlash, destination: dest, permanent: true },
+    { source: noSlash, destination: dest, permanent: true },
   );
 }
 

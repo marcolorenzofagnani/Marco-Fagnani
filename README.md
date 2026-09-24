@@ -43,7 +43,9 @@ Se resti su File Manager Aruba:
 - I file `*.html` vengono serviti come `/slug/` via Apache rewrite
 - Redirect 301 dalle URL WordPress vecchie (vedi `public/.htaccess`)
 
-Pagine **noindex**: `404.html`, bridge `traumi-sportivi-milano` (301 → recupero), facsimile `esempio-report-*`.
+Pagine **noindex**: `404.html`, facsimile `esempio-report-*`.
+`/traumi-sportivi-milano/` fa **301** a `/recupero-infortunio-sportivo/`.
+Le vecchie landing `osteopata-*-milano` fanno **301** a `/milano-forlanini/`.
 
 Lista URL sitemap: `src/seo-urls.js` → `npm run seo`.
 

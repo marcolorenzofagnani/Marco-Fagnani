@@ -85,8 +85,17 @@ ErrorDocument 404 /404.html
   RewriteRule ^2022/12/19/stipsi/?$ /osteopatia/ [R=301,L]
   RewriteRule ^2022/12/19/vertigini/?$ /cervicalgia-milano/ [R=301,L]
 
-  # Thin bridge kept as file but preferred URL is the full guide
   RewriteRule ^traumi-sportivi-milano/?$ /recupero-infortunio-sportivo/ [R=301,L]
+
+  # Retired geographic doorways → local hub
+  RewriteRule ^osteopata-mecenate-milano/?$ /milano-forlanini/ [R=301,L]
+  RewriteRule ^osteopata-ortica-milano/?$ /milano-forlanini/ [R=301,L]
+  RewriteRule ^osteopata-lambrate-milano/?$ /milano-forlanini/ [R=301,L]
+  RewriteRule ^osteopata-citta-studi-milano/?$ /milano-forlanini/ [R=301,L]
+  RewriteRule ^osteopata-taliedo-linate-milano/?$ /milano-forlanini/ [R=301,L]
+  RewriteRule ^osteopata-porta-vittoria-milano/?$ /milano-forlanini/ [R=301,L]
+  RewriteRule ^osteopata-santa-giulia-milano/?$ /milano-forlanini/ [R=301,L]
+  RewriteRule ^osteopata-rogoredo-milano/?$ /milano-forlanini/ [R=301,L]
 
   # WP leftovers after static cutover
   RewriteRule ^(wp-admin|wp-login\.php|wp-json|xmlrpc\.php|feed|comments/feed)(/|$) - [R=410,L]

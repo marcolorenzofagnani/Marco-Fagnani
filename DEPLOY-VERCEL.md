@@ -66,7 +66,7 @@ TTL: dopo il cambio DNS attendi propagazione (spesso 15 min–2 h).
 - [ ] `/osteopatia.html` → 301 a `/osteopatia/`
 - [ ] Nessun `X-Robots-Tag: none` sulle pagine pubbliche
 - [ ] Search Console → proprietà + sitemap `https://www.marcofagnaniosteopata.it/sitemap.xml`
-- [ ] Prova una landing zona, es. `/osteopata-lambrate-milano/`
+- [ ] Prova `/milano-forlanini/` e un redirect zona, es. `/osteopata-lambrate-milano/` → sede
 
 ## 5. Landing zona (amo SEO)
 

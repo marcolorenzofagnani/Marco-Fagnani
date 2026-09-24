@@ -6,6 +6,18 @@ import { ZONE_LANDINGS } from "./zone-landings.js";
  */
 export const SITE_ORIGIN = "https://www.marcofagnaniosteopata.it";
 
+/** Slugs of retired geographic landings (301 → /milano-forlanini/). */
+export const RETIRED_ZONE_SLUGS = [
+  "osteopata-mecenate-milano",
+  "osteopata-ortica-milano",
+  "osteopata-lambrate-milano",
+  "osteopata-citta-studi-milano",
+  "osteopata-taliedo-linate-milano",
+  "osteopata-porta-vittoria-milano",
+  "osteopata-santa-giulia-milano",
+  "osteopata-rogoredo-milano",
+];
+
 /** Pages included in sitemap.xml (must match <link rel="canonical">). */
 export const INDEXABLE_PATHS = [
   "/",
@@ -32,6 +44,7 @@ export const INDEXABLE_PATHS = [
 /**
  * Old WordPress (or alias) paths → new canonical path.
  * Applied as 301 in public/.htaccess and vercel.json
+ * Both /path and /path/ are emitted to avoid trailingSlash chains on Vercel.
  */
 export const LEGACY_REDIRECTS = [
   ["/ginnastica-posturale-e-riatletizzazione/", "/preparazione-atletica/"],
@@ -50,12 +63,13 @@ export const LEGACY_REDIRECTS = [
   ["/2022/12/19/scoliosi/", "/osteopatia/"],
   ["/2022/12/19/stipsi/", "/osteopatia/"],
   ["/2022/12/19/vertigini/", "/cervicalgia-milano/"],
+  ["/traumi-sportivi-milano/", "/recupero-infortunio-sportivo/"],
+  ...RETIRED_ZONE_SLUGS.map((slug) => [`/${slug}/`, "/milano-forlanini/"]),
 ];
 
 /** HTML files that must not be indexed (noindex + out of sitemap). */
 export const NOINDEX_HTML = [
   "404.html",
-  "traumi-sportivi-milano.html",
   "esempio-report-generale.html",
   "esempio-report-atleta.html",
 ];
