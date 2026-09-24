@@ -443,6 +443,15 @@ a {
   align-items: center;
   padding: 0.85rem 1.1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s ease;
+}
+
+a.tariff-row:hover,
+a.tariff-row:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
 }
 
 .tariff-row:last-child {
@@ -501,6 +510,12 @@ a {
 
 .tariffario--compact .tariff-price {
   color: var(--teal-deep);
+}
+
+a.tariffario--compact .tariff-row:hover,
+.tariffario--compact a.tariff-row:hover,
+.tariffario--compact a.tariff-row:focus-visible {
+  background: rgba(30, 74, 85, 0.06);
 }
 
 .pill {

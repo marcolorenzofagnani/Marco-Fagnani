@@ -9,14 +9,14 @@ const WA =
   encodeURIComponent("Ciao Marco, vorrei prenotare una seduta.");
 
 const NAV = [
-  ["chi-sono.html", "Chi sono"],
-  ["osteopatia.html", "Osteopatia"],
-  ["valutazione-funzionale.html", "Valutazione"],
-  ["return-to-play.html", "Return to play"],
-  ["preparazione-atletica.html", "Preparazione"],
-  ["blog.html", "Blog"],
-  ["milano-forlanini.html", "Sede"],
-  ["contatti.html", "Contatti"],
+  ["/chi-sono/", "Chi sono"],
+  ["/osteopatia/", "Osteopatia"],
+  ["/valutazione-funzionale/", "Valutazione"],
+  ["/return-to-play/", "Return to play"],
+  ["/preparazione-atletica/", "Preparazione"],
+  ["/blog/", "Blog"],
+  ["/milano-forlanini/", "Sede"],
+  ["/contatti/", "Contatti"],
 ];
 
 function waIcon(size = 18) {
@@ -43,7 +43,7 @@ function mountChrome() {
   if (header) {
     header.innerHTML = `
       <div class="container header-inner">
-        <a class="brand" href="index.html" aria-label="${SITE.personName} — home">
+        <a class="brand" href="/" aria-label="${SITE.personName} — home">
           <picture>
             <source type="image/webp" srcset="/images/logo-header.webp" />
             <img class="brand-logo" src="/images/logo-header.png" alt="" width="280" height="66" decoding="async" />
@@ -96,16 +96,16 @@ function mountChrome() {
         </div>
         <nav aria-label="Pagine nel piè di pagina">
           <strong>Pagine</strong><br />
-          <a href="milano-forlanini.html">Sede Forlanini</a> ·
-          <a href="chi-sono.html">Chi sono</a> ·
-          <a href="osteopatia.html">Osteopatia</a> ·
-          <a href="valutazione-funzionale.html">Valutazione</a> ·
-          <a href="return-to-play.html">Return to play</a> ·
-          <a href="preparazione-atletica.html">Preparazione</a> ·
-          <a href="blog.html">Blog</a> ·
-          <a href="problemi.html">Guide</a> ·
-          <a href="contatti.html">Contatti</a> ·
-          <a href="privacy.html">Privacy</a>
+          <a href="/milano-forlanini/">Sede Forlanini</a> ·
+          <a href="/chi-sono/">Chi sono</a> ·
+          <a href="/osteopatia/">Osteopatia</a> ·
+          <a href="/valutazione-funzionale/">Valutazione</a> ·
+          <a href="/return-to-play/">Return to play</a> ·
+          <a href="/preparazione-atletica/">Preparazione</a> ·
+          <a href="/blog/">Blog</a> ·
+          <a href="/problemi/">Guide</a> ·
+          <a href="/contatti/">Contatti</a> ·
+          <a href="/privacy/">Privacy</a>
         </nav>
       </div>
       <div class="container" style="margin-top:1.25rem">
