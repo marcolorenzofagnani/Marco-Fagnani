@@ -59,6 +59,16 @@
       "permanent": true
     },
     {
+      "source": "/blog/",
+      "destination": "/problemi/",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/problemi/",
+      "permanent": true
+    },
+    {
       "source": "/ginnastica-posturale-e-riatletizzazione/",
       "destination": "/preparazione-atletica/",
       "permanent": true

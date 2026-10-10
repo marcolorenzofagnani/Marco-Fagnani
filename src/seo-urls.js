@@ -29,7 +29,6 @@ export const INDEXABLE_PATHS = [
   "/preparazione-atletica/",
   "/contatti/",
   "/milano-forlanini/",
-  "/blog/",
   "/problemi/",
   "/mal-di-schiena-milano/",
   "/cervicalgia-milano/",
@@ -48,6 +47,7 @@ export const INDEXABLE_PATHS = [
  * Both /path and /path/ are emitted to avoid trailingSlash chains on Vercel.
  */
 export const LEGACY_REDIRECTS = [
+  ["/blog/", "/problemi/"],
   ["/ginnastica-posturale-e-riatletizzazione/", "/preparazione-atletica/"],
   ["/privacy-policy/", "/privacy/"],
   ["/2022/11/28/lombalgia/", "/mal-di-schiena-milano/"],

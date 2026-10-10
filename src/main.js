@@ -14,7 +14,7 @@ const NAV = [
   ["/valutazione-funzionale/", "Valutazione"],
   ["/return-to-play/", "Return to play"],
   ["/preparazione-atletica/", "Preparazione"],
-  ["/blog/", "Blog"],
+  ["/problemi/", "Guide"],
   ["/milano-forlanini/", "Sede"],
   ["/contatti/", "Contatti"],
 ];
@@ -102,7 +102,6 @@ function mountChrome() {
           <a href="/valutazione-funzionale/">Valutazione</a> ·
           <a href="/return-to-play/">Return to play</a> ·
           <a href="/preparazione-atletica/">Preparazione</a> ·
-          <a href="/blog/">Blog</a> ·
           <a href="/problemi/">Guide</a> ·
           <a href="/contatti/">Contatti</a> ·
           <a href="/privacy/">Privacy</a>
@@ -121,12 +120,41 @@ function mountChrome() {
     float.target = "_blank";
     float.rel = "noopener noreferrer";
     float.setAttribute("aria-label", "Scrivi su WhatsApp — apre una nuova scheda");
+    float.dataset.wa = "float";
     float.innerHTML = waIcon(28);
     document.body.appendChild(float);
   }
 }
 
+/** Click ≠ prenotazione: traccia solo l’intento WhatsApp (gtag/dataLayer se presenti). */
+function trackWhatsAppClicks() {
+  document.addEventListener(
+    "click",
+    (event) => {
+      const link = event.target instanceof Element ? event.target.closest('a[href*="wa.me"]') : null;
+      if (!link) return;
+      const page = location.pathname || "/";
+      const placement = link.dataset.wa || (link.classList.contains("wa-float") ? "float" : link.classList.contains("btn-wa") ? "button" : "text");
+      const payload = {
+        event: "whatsapp_click",
+        page_path: page,
+        placement,
+      };
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(payload);
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "whatsapp_click", {
+          page_path: page,
+          placement,
+        });
+      }
+    },
+    true,
+  );
+}
+
 mountChrome();
+trackWhatsAppClicks();
 mountSchema();
 mountSampleRadars();
 

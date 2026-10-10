@@ -1111,6 +1111,20 @@ section {
   line-height: 1.5;
 }
 
+.guide-meta {
+  margin: 0 0 1rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.guide-sources {
+  margin-top: 0.35rem;
+}
+
+.guide-sources li {
+  margin-bottom: 0.35rem;
+}
+
 /* Facsimile report cliente (anteprima) */
 .sample-badge {
   display: inline-block;

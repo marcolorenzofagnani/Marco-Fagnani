@@ -1,5 +1,5 @@
 # Apache / Aruba — SEO + cache + security headers for static Vite build
-# Canonical host: https://www.marcofagnaniosteopata.it
+# Canonical host: https://marcofagnaniosteopata.it (apex; www → 301)
 # Canonical paths: trailing slash (home = /)
 # IMPORTANT: do NOT set X-Robots-Tag: none on public HTML (that blocks indexing).
 
@@ -57,17 +57,18 @@ ErrorDocument 404 /404.html
   RewriteBase /
 
   # --- 1) Canonical host + HTTPS ---
-  # Host non-www → www (sempre HTTPS)
-  RewriteCond %{HTTP_HOST} !^www\.marcofagnaniosteopata\.it$ [NC]
-  RewriteRule ^ https://www.marcofagnaniosteopata.it%{REQUEST_URI} [R=301,L]
+  # www → apex (sempre HTTPS)
+  RewriteCond %{HTTP_HOST} ^www\.marcofagnaniosteopata\.it$ [NC]
+  RewriteRule ^ https://marcofagnaniosteopata.it%{REQUEST_URI} [R=301,L]
 
   # HTTP → HTTPS (compatibile con aruba-proxy / X-Forwarded-Proto)
   RewriteCond %{HTTP:X-Forwarded-Proto} =http [OR]
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !=https [NC]
-  RewriteRule ^ https://www.marcofagnaniosteopata.it%{REQUEST_URI} [R=301,L]
+  RewriteRule ^ https://marcofagnaniosteopata.it%{REQUEST_URI} [R=301,L]
 
   # --- 2) Legacy WordPress / alias → new canonicals ---
+  RewriteRule ^blog/?$ /problemi/ [R=301,L]
   RewriteRule ^ginnastica-posturale-e-riatletizzazione/?$ /preparazione-atletica/ [R=301,L]
   RewriteRule ^privacy-policy/?$ /privacy/ [R=301,L]
   RewriteRule ^2022/11/28/lombalgia/?$ /mal-di-schiena-milano/ [R=301,L]

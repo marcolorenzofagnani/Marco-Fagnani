@@ -49,12 +49,12 @@ Le vecchie landing `osteopata-*-milano` fanno **301** a `/milano-forlanini/`.
 
 Lista URL sitemap: `src/seo-urls.js` → `npm run seo`.
 
-## Blog e guide
+## Guide
 
-- Hub: `blog.html` (menu **Blog**) — guide + landing Forlanini/RTP/preparazione/valutazione.
-- Indice guide: `problemi.html` (ancora in footer).
+- Indice unico: `problemi.html` (menu **Guide**).
+- `/blog/` fa **301** a `/problemi/` (niente doppio indice).
 
-Indice: `problemi.html`. Ogni guida segue lo stesso schema H2:
+Ogni guida segue lo stesso schema H2:
 
 1. Che cos’è  
 2. Presentazioni comuni  
