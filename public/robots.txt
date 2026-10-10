@@ -1,4 +1,4 @@
-# Marco Fagnani Osteopata — https://www.marcofagnaniosteopata.it
+# Marco Fagnani Osteopata — https://marcofagnaniosteopata.it
 User-agent: *
 Allow: /
 
@@ -10,4 +10,4 @@ Allow: /fonts/
 # Utility (la meta noindex sulla pagina 404 è la protezione principale)
 Disallow: /404.html
 
-Sitemap: https://www.marcofagnaniosteopata.it/sitemap.xml
+Sitemap: https://marcofagnaniosteopata.it/sitemap.xml

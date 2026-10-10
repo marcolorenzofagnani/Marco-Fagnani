@@ -16,7 +16,7 @@ mkdirSync(pub, { recursive: true });
 
 const today = new Date().toISOString().slice(0, 10);
 
-const robots = `# Marco Fagnani Osteopata — https://www.marcofagnaniosteopata.it
+const robots = `# Marco Fagnani Osteopata — https://marcofagnaniosteopata.it
 User-agent: *
 Allow: /
 

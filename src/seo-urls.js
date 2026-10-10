@@ -2,9 +2,10 @@ import { ZONE_LANDINGS } from "./zone-landings.js";
 
 /**
  * Canonical, indexable URLs for marcofagnaniosteopata.it
- * Host: https://www.… · path with trailing slash (home = /)
+ * Host: https://marcofagnaniosteopata.it (apex, no www — matches Vercel 308)
+ * Path with trailing slash (home = /)
  */
-export const SITE_ORIGIN = "https://www.marcofagnaniosteopata.it";
+export const SITE_ORIGIN = "https://marcofagnaniosteopata.it";
 
 /** Slugs of retired geographic landings (301 → /milano-forlanini/). */
 export const RETIRED_ZONE_SLUGS = [

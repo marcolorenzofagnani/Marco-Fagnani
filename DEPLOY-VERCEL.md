@@ -43,8 +43,8 @@ Poi Vercel Root Directory = `.`
 
 In Vercel → Project → Settings → Domains → aggiungi:
 
-- `www.marcofagnaniosteopata.it`
-- `marcofagnaniosteopata.it`
+- `marcofagnaniosteopata.it` (canonical / apex)
+- `www.marcofagnaniosteopata.it` (redirect → apex)
 
 Vercel ti mostra i record. Su **Aruba** (gestione DNS del dominio), tipicamente:
 
@@ -61,11 +61,11 @@ TTL: dopo il cambio DNS attendi propagazione (spesso 15 min–2 h).
 
 ## 4. Checklist post-go-live
 
-- [ ] `https://www.marcofagnaniosteopata.it/` → 200
+- [ ] `https://marcofagnaniosteopata.it/` → 200
 - [ ] URL inventato → 404 (non home)
 - [ ] `/osteopatia.html` → 301 a `/osteopatia/`
 - [ ] Nessun `X-Robots-Tag: none` sulle pagine pubbliche
-- [ ] Search Console → proprietà + sitemap `https://www.marcofagnaniosteopata.it/sitemap.xml`
+- [ ] Search Console → proprietà + sitemap `https://marcofagnaniosteopata.it/sitemap.xml`
 - [ ] Prova `/milano-forlanini/` e un redirect zona, es. `/osteopata-lambrate-milano/` → sede
 
 ## 5. Landing zona (amo SEO)

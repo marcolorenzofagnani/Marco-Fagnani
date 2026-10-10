@@ -19,7 +19,7 @@ export const SITE = {
   /** Already published in home LocalBusiness schema. */
   geo: { latitude: 45.4628, longitude: 9.2426 },
   mapsQuery: "Viale+Enrico+Forlanini+23,+20134+Milano",
-  siteUrl: "https://www.marcofagnaniosteopata.it",
+  siteUrl: "https://marcofagnaniosteopata.it",
   waBase: "https://wa.me/393451568849",
 };
 

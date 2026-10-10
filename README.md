@@ -38,7 +38,7 @@ Se resti su File Manager Aruba:
 
 ### URL canoniche (produzione)
 
-- Host: `https://www.marcofagnaniosteopata.it`
+- Host: `https://marcofagnaniosteopata.it`
 - Path con **trailing slash** (home = `/`)
 - I file `*.html` vengono serviti come `/slug/` via Apache rewrite
 - Redirect 301 dalle URL WordPress vecchie (vedi `public/.htaccess`)
